@@ -16,7 +16,7 @@ func _physics_process(delta):
 		$nico.apply_force(Vector2.LEFT * speed,Vector2.ZERO)
 			
 	pass
-
+# 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
 func _input(event):
 	if Input.is_action_just_pressed("esc"):
 		get_tree().quit()
