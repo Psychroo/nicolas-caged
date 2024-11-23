@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bwowb4g3r73vl" path="res://Sprite/icon.svg" id="3_ouxpd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ekkgo"]
-friction = 0.0
+friction = 0.02
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sowdx"]
 size = Vector2(50, 161)
@@ -33,6 +33,32 @@ position = Vector2(-3, -0.5)
 shape = SubResource("RectangleShape2D_sowdx")
 
 [node name="Camera2D" type="Camera2D" parent="nico"]
+
+[node name="debug" type="Control" parent="nico"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -12.0
+offset_top = -111.0
+offset_right = 28.0
+offset_bottom = -71.0
+
+[node name="lb_velocity_x" type="Label" parent="nico/debug"]
+unique_name_in_owner = true
+modulate = Color(0.139063, 0.682126, 0.938429, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "vel x"
+
+[node name="lb_velocity_y" type="Label" parent="nico/debug"]
+unique_name_in_owner = true
+modulate = Color(0.89739, 0.0637854, 0.0380158, 1)
+layout_mode = 0
+offset_left = 49.0
+offset_top = 81.0
+offset_right = 89.0
+offset_bottom = 104.0
+text = "vel y"
 
 [node name="cage" type="RigidBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_b0nn5")
