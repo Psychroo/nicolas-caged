@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyhfnt6awitmt"]
+
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_gfnc6"]
+[ext_resource type="Texture2D" uid="uid://cbua8t36a2apt" path="res://Sprite/NicolasIdle.png" id="1_rm4lc"]
+[ext_resource type="Texture2D" uid="uid://bwowb4g3r73vl" path="res://Sprite/icon.svg" id="3_ouxpd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sowdx"]
+size = Vector2(50, 161)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k23t"]
+size = Vector2(220, 20)
+
+[node name="player" type="Node2D"]
+script = ExtResource("1_gfnc6")
+
+[node name="nico" type="RigidBody2D" parent="."]
+
+[node name="nico_sprite" type="Sprite2D" parent="nico"]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_rm4lc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nico"]
+position = Vector2(-3, -0.5)
+shape = SubResource("RectangleShape2D_sowdx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="cage" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cage"]
+position = Vector2(0, -124)
+shape = SubResource("RectangleShape2D_1k23t")
+
+[node name="Sprite2D" type="Sprite2D" parent="cage/CollisionShape2D"]
+position = Vector2(0, 1.5)
+scale = Vector2(1.70312, 0.132813)
+texture = ExtResource("3_ouxpd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="cage"]
+position = Vector2(0, 92)
+shape = SubResource("RectangleShape2D_1k23t")
+
+[node name="Sprite2D2" type="Sprite2D" parent="cage/CollisionShape2D2"]
+scale = Vector2(1.70312, 0.132813)
+texture = ExtResource("3_ouxpd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="cage"]
+position = Vector2(-101, -16)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_1k23t")
+
+[node name="Sprite2D3" type="Sprite2D" parent="cage/CollisionShape2D3"]
+position = Vector2(1.99999, -3)
+scale = Vector2(1.70312, 0.132813)
+texture = ExtResource("3_ouxpd")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="cage"]
+position = Vector2(101, -16)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_1k23t")
+
+[node name="Sprite2D4" type="Sprite2D" parent="cage/CollisionShape2D4"]
+position = Vector2(-1, 0)
+scale = Vector2(1.70312, 0.132813)
+texture = ExtResource("3_ouxpd")
