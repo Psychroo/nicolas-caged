@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq6hqg1ybg7j1"]
+[gd_scene load_steps=6 format=3 uid="uid://ck4xxc5v2yhim"]
 
 [ext_resource type="Texture2D" uid="uid://cbua8t36a2apt" path="res://Sprite/NicolasIdle.png" id="1_rnfjk"]
 [ext_resource type="Texture2D" uid="uid://gl6rb15hb8s5" path="res://Sprite/jaula.png" id="2_ht2mg"]
