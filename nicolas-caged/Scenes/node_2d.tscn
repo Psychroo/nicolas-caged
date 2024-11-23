@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1tajff7v1ixl"]
+
+[ext_resource type="Texture2D" uid="uid://cbua8t36a2apt" path="res://Sprite/NicolasIdle.png" id="1_thc02"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(908, 712)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_thc02")
