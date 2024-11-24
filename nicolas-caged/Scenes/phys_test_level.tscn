@@ -15,6 +15,8 @@ size = Vector2(134, 22)
 
 [node name="player" parent="." instance=ExtResource("1_i1e3g")]
 position = Vector2(0, -214)
+jump_up = 300.0
+jump_pow = 1.005
 
 [node name="i_bone" parent="." instance=ExtResource("2_yw04c")]
 position = Vector2(255, -172)
