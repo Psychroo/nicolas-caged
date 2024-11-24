@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyhfnt6awitmt"]
+[gd_scene load_steps=9 format=3 uid="uid://cyhfnt6awitmt"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_gfnc6"]
 [ext_resource type="Texture2D" uid="uid://cbua8t36a2apt" path="res://Sprite/NicolasIdle.png" id="1_rm4lc"]
@@ -7,8 +7,12 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ekkgo"]
 friction = 0.02
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sowdx"]
-size = Vector2(50, 161)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8l7li"]
+radius = 18.0
+height = 154.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kbfao"]
+radius = 5.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b0nn5"]
 
@@ -29,8 +33,8 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_rm4lc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="nico"]
-position = Vector2(-3, -0.5)
-shape = SubResource("RectangleShape2D_sowdx")
+position = Vector2(-3, -7)
+shape = SubResource("CapsuleShape2D_8l7li")
 
 [node name="Camera2D" type="Camera2D" parent="nico"]
 
@@ -50,6 +54,16 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "vel x"
 
+[node name="lb_input" type="Label" parent="nico/debug"]
+unique_name_in_owner = true
+modulate = Color(0.337655, 0.741385, 0.229381, 1)
+layout_mode = 0
+offset_left = -6.0
+offset_top = -61.0
+offset_right = 34.0
+offset_bottom = -38.0
+text = "input"
+
 [node name="lb_velocity_y" type="Label" parent="nico/debug"]
 unique_name_in_owner = true
 modulate = Color(0.89739, 0.0637854, 0.0380158, 1)
@@ -59,6 +73,12 @@ offset_top = 81.0
 offset_right = 89.0
 offset_bottom = 104.0
 text = "vel y"
+
+[node name="floor_col" type="Area2D" parent="nico"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nico/floor_col"]
+position = Vector2(-3, 77)
+shape = SubResource("CircleShape2D_kbfao")
 
 [node name="cage" type="RigidBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_b0nn5")
@@ -99,3 +119,6 @@ shape = SubResource("RectangleShape2D_1k23t")
 position = Vector2(-1, 0)
 scale = Vector2(1.70312, 0.132813)
 texture = ExtResource("3_ouxpd")
+
+[connection signal="body_entered" from="nico/floor_col" to="." method="_on_floor_col_body_entered"]
+[connection signal="body_exited" from="nico/floor_col" to="." method="_on_floor_col_body_exited"]

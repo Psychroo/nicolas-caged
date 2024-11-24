@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://dufv8jmgbpae8"]
+
+[ext_resource type="PackedScene" uid="uid://cyhfnt6awitmt" path="res://Scenes/player.tscn" id="1_3xja3"]
+[ext_resource type="Script" path="res://Scenes/shite/test_pendulum.gd" id="1_aswfn"]
+[ext_resource type="Texture2D" uid="uid://cuhvv8nc2jatm" path="res://Sprite/fondo.png" id="1_hn64o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nrwce"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gbjc3"]
+radius = 103.947
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_aswfn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.81208, 4.5)
+texture = ExtResource("1_hn64o")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0, -163)
+node_a = NodePath("player2/cage")
+node_b = NodePath("StaticBody2D")
+softness = 6.96
+motor_target_velocity = 1.531
+
+[node name="player2" parent="PinJoint2D" instance=ExtResource("1_3xja3")]
+position = Vector2(0, 273)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PinJoint2D"]
+position = Vector2(1, -252)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinJoint2D/StaticBody2D"]
+position = Vector2(-4, 6)
+shape = SubResource("CircleShape2D_nrwce")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(339, -172)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_gbjc3")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-402, -124)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_gbjc3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+
+[editable path="PinJoint2D/player2"]
