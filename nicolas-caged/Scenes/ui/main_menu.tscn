@@ -56,9 +56,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -185.0
-offset_top = 142.0
+offset_top = 179.0
 offset_right = 185.0
-offset_bottom = 318.0
+offset_bottom = 281.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -81,6 +81,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="bt_quit" type="Button" parent="vb"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_xevdd")
@@ -111,8 +112,8 @@ offset_bottom = 539.0
 texture = ExtResource("4_4evif")
 
 [node name="buttons" type="Sprite2D" parent="."]
-position = Vector2(950, 607)
-scale = Vector2(2.5, 2.5)
+position = Vector2(955, 942)
+scale = Vector2(3, 3)
 texture = ExtResource("5_qfwqe")
 hframes = 6
 
@@ -125,9 +126,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -2.0
-offset_top = 44.0
+offset_top = 369.0
 offset_right = 2.0
-offset_bottom = 69.0
+offset_bottom = 394.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -140,9 +141,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 12.0
-offset_top = 55.0
+offset_top = 380.0
 offset_right = 16.0
-offset_bottom = 78.0
+offset_bottom = 403.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 1.57079
@@ -151,6 +152,7 @@ rotation = 1.57079
 libraries = {
 "": SubResource("AnimationLibrary_7v5a8")
 }
+autoplay = "buttons"
 
 [connection signal="pressed" from="vb/bt_play" to="." method="_on_bt_play_pressed"]
 [connection signal="pressed" from="vb/bt_quit" to="." method="_on_bt_quit_pressed"]
