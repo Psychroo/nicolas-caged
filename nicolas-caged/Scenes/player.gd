@@ -7,6 +7,7 @@ class_name PLAYER
 @export var push_base_add = 50.
 @export var floor_check:bool = true
 @export var extra_jump_post_bone : float = 2.5
+var nicollision_height=150
 var input_blocked:=false
 var can_jump:bool = false
 var x_vel:float = 0
@@ -97,6 +98,7 @@ func _on_floor_col_body_entered(body):
 	if body.name=='cage':
 	#if body.get_class()=='TileMap':
 		can_jump = true
+		%nicollision.shape.height = 150
 		%nico_sprite.show()
 		%nico_air.hide()
 
@@ -105,6 +107,7 @@ func _on_floor_col_body_exited(body):
 	if body.name=='cage':
 		%nico_sprite.hide()
 		%nico_air.show()
+		%nicollision.shape.height = 80
 		can_jump = false
 		
 	

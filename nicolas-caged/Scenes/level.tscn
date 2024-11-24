@@ -123,7 +123,7 @@ texture = ExtResource("2_3fuvn")
 centered = false
 
 [node name="player" parent="." instance=ExtResource("4_avwkc")]
-position = Vector2(4307, -190)
+position = Vector2(-526, -197)
 jump_up = 400.0
 jump_pow = 1.005
 push_base_add = 1000.0

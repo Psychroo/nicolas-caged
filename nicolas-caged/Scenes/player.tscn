@@ -12,8 +12,7 @@
 friction = 0.02
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8l7li"]
-radius = 9.0
-height = 154.0
+height = 150.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kbfao"]
 radius = 5.0
@@ -367,18 +366,22 @@ unique_name_in_owner = true
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="cage"]
 position = Vector2(-92, 81)
 shape = SubResource("RectangleShape2D_rymew")
+disabled = true
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="cage"]
 position = Vector2(-92, -99)
 shape = SubResource("RectangleShape2D_rymew")
+disabled = true
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="cage"]
 position = Vector2(90, -101)
 shape = SubResource("RectangleShape2D_rymew")
+disabled = true
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="cage"]
 position = Vector2(94, 84)
 shape = SubResource("RectangleShape2D_rymew")
+disabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
