@@ -6,6 +6,8 @@ class_name PLAYER
 @export var jump_pow:float = 1.001
 @export var push_base_add = 50.
 @export var floor_check:bool = true
+@export var extra_jump_post_bone : float = 2.5
+var input_blocked:=false
 var can_jump:bool = false
 var x_vel:float = 0
 var y_vel:float = 0
@@ -31,6 +33,12 @@ func _toggle_bone_grabbed(bgrabbed:bool):
 		#%cs_bone.disabled = false
 		
 func _physics_process(delta):
+	$nico/overlay/up.visible = round(move_input.y) < 0
+	$nico/overlay/right.visible = round(move_input.x) > 0
+	$nico/overlay/left.visible = round(move_input.x) < 0
+	#$nico/overlay/.visible = bool(round(move_input.y))
+	#$nico/overlay/right.visible = bool(round(move_input.x))
+	#$nico/overlay/up.visible = bool(round(move_input.y))
 	x_vel = $nico.linear_velocity.x
 	y_vel = $nico.linear_velocity.y
 	$nico.apply_force(move_input * speed,Vector2.ZERO)
@@ -49,17 +57,20 @@ func _debug_print():
 		%lb_velocity_y.text = str(floor(y_vel))
 		
 func _input(event):
+	if input_blocked:return
 	if Input.is_action_just_pressed("esc"):
-		get_tree().quit()
+		Global._esc_pressed()
 	if Input.is_action_just_pressed("f2"):
 		get_tree().reload_current_scene()
-		
+	
 	move_input.x = Input.get_axis("a","d")
 	move_input.y = Input.get_axis("w","s")
 	if Input.is_action_just_pressed("spc"):
 		if !can_jump:return
 		var impulse_x:float = pow(abs(x_vel),jump_pow)
 		var impulse_y:float = jump_base * move_input.y  * jump_up
+		if Global.has_bone:
+			impulse_y *= extra_jump_post_bone
 		var impulse = Vector2(impulse_x,impulse_y)
 		
 		$nico.apply_impulse(Vector2(0,impulse.y * 1.25))

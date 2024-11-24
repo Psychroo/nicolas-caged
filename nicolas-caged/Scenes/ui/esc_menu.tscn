@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8biwbr82uw57"]
+
+[ext_resource type="Script" path="res://Scenes/ui/esc_menu.gd" id="1_cpvvs"]
+[ext_resource type="Theme" uid="uid://crn417lbb67ve" path="res://Scenes/ui/theme.tres" id="1_dln7a"]
+[ext_resource type="Texture2D" uid="uid://cuhvv8nc2jatm" path="res://Sprite/fondo.png" id="2_jo204"]
+
+[node name="esc_menu" type="Control"]
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dln7a")
+script = ExtResource("1_cpvvs")
+
+[node name="bg" type="TextureRect" parent="."]
+modulate = Color(0.347817, 0.347817, 0.347817, 1)
+layout_mode = 0
+offset_right = 1944.0
+offset_bottom = 1103.0
+texture = ExtResource("2_jo204")
+
+[node name="vb" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -132.0
+offset_right = 201.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bt_restart" type="Button" parent="vb"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="vb/bt_restart"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESTART"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bt_continue" type="Button" parent="vb"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="vb/bt_continue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CONTINUE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bt_quit" type="Button" parent="vb"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label3" type="Label" parent="vb/bt_quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="vb/bt_restart" to="." method="_on_bt_restart_pressed"]
+[connection signal="pressed" from="vb/bt_continue" to="." method="_on_bt_continue_pressed"]
+[connection signal="pressed" from="vb/bt_quit" to="." method="_on_bt_quit_pressed"]

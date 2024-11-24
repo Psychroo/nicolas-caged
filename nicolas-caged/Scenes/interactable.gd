@@ -28,6 +28,8 @@ func _on_body_entered(body):
 				pass
 			'i_dog':
 				if Global.has_bone:
-					get_tree().quit()
+					Global.player.input_blocked = true
+					Global.monke._go_to_player()
+					#get_tree().quit()
 				pass
 	pass # Replace with function body.

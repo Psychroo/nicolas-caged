@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://crn417lbb67ve"]
+
+[ext_resource type="Texture2D" uid="uid://canb2ggre8bus" path="res://Sprite/buttons/b1_black.png" id="1_btq6d"]
+[ext_resource type="Texture2D" uid="uid://ci4a65xuofb72" path="res://Sprite/buttons/b1.png" id="2_uom1l"]
+[ext_resource type="FontFile" uid="uid://y025jn6em8y2" path="res://Scenes/ui/Stacked pixel.ttf" id="3_mgor4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y6h3g"]
+texture = ExtResource("1_btq6d")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mn4pd"]
+texture = ExtResource("2_uom1l")
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxTexture_y6h3g")
+Button/styles/normal = SubResource("StyleBoxTexture_mn4pd")
+Label/font_sizes/font_size = 26
+Label/fonts/font = ExtResource("3_mgor4")

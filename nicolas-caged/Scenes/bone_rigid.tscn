@@ -1,19 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bllgptqw23ryh"]
+[gd_scene load_steps=2 format=3 uid="uid://bllgptqw23ryh"]
 
-[ext_resource type="Texture2D" uid="uid://ckhov5m5uos4k" path="res://Sprite/bone.png" id="1_fs2s1"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wujo5"]
-radius = 6.0
-height = 52.0
+[ext_resource type="Texture2D" uid="uid://co6hbto78bgtt" path="res://Sprite/banana32x32.png" id="1_wgkqj"]
 
 [node name="bone" type="RigidBody2D"]
 position = Vector2(-1, 0)
 
-[node name="cs_bone" type="CollisionShape2D" parent="."]
+[node name="cs_bone" type="CollisionPolygon2D" parent="."]
 unique_name_in_owner = true
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_wujo5")
+polygon = PackedVector2Array(-8, 15, -7, 12, -3, 7, -2, 1, -5, -6, -13, -11, -12, -15, -5, -16, 2, -14, 7, -8, 9, -4.17233e-07, 8, 7, 2, 13, -5, 17)
 
 [node name="Sprite2D" type="Sprite2D" parent="cs_bone"]
-rotation = -0.785398
-texture = ExtResource("1_fs2s1")
+position = Vector2(-8, -0.999999)
+rotation = -2.48372
+texture = ExtResource("1_wgkqj")

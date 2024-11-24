@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://brs0fdkt4rh1k"]
+
+[ext_resource type="Texture2D" uid="uid://cuhvv8nc2jatm" path="res://Sprite/fondo.png" id="1_75ur4"]
+[ext_resource type="Script" path="res://Scenes/ui/main_menu.gd" id="1_rg58w"]
+[ext_resource type="Theme" uid="uid://crn417lbb67ve" path="res://Scenes/ui/theme.tres" id="1_xevdd"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xevdd")
+script = ExtResource("1_rg58w")
+
+[node name="bg" type="TextureRect" parent="."]
+modulate = Color(0.288518, 0.288518, 0.288518, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_75ur4")
+
+[node name="vb" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -68.0
+offset_right = 185.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bt_play" type="Button" parent="vb"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_xevdd")
+
+[node name="Label" type="Label" parent="vb/bt_play"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bt_quit" type="Button" parent="vb"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_xevdd")
+
+[node name="Label2" type="Label" parent="vb/bt_quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -20.0
+offset_right = 44.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="vb/bt_play" to="." method="_on_bt_play_pressed"]
+[connection signal="pressed" from="vb/bt_quit" to="." method="_on_bt_quit_pressed"]

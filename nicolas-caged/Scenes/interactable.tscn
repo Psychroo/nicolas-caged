@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bwowb4g3r73vl" path="res://Sprite/icon.svg" id="1_dwp8x"]
 [ext_resource type="Script" path="res://Scenes/interactable.gd" id="1_hem7h"]
-[ext_resource type="Texture2D" uid="uid://ckhov5m5uos4k" path="res://Sprite/bone.png" id="2_uaiid"]
+[ext_resource type="Texture2D" uid="uid://co6hbto78bgtt" path="res://Sprite/banana32x32.png" id="2_2vabq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lhhu4"]
 radius = 98.0459
@@ -11,7 +11,7 @@ radius = 98.0459
 script = ExtResource("1_hem7h")
 
 [node name="bone" type="Sprite2D" parent="."]
-texture = ExtResource("2_uaiid")
+texture = ExtResource("2_2vabq")
 
 [node name="other" type="Sprite2D" parent="."]
 visible = false

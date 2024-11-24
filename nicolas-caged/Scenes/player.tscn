@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyhfnt6awitmt"]
+[gd_scene load_steps=11 format=3 uid="uid://cyhfnt6awitmt"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_gfnc6"]
 [ext_resource type="Texture2D" uid="uid://cbua8t36a2apt" path="res://Sprite/NicolasIdle.png" id="1_rm4lc"]
 [ext_resource type="Texture2D" uid="uid://bwowb4g3r73vl" path="res://Sprite/icon.svg" id="3_ouxpd"]
+[ext_resource type="Texture2D" uid="uid://bcgqhrif5q6bs" path="res://Sprite/buttons/b5_16x16.png" id="3_ucrkm"]
 [ext_resource type="Texture2D" uid="uid://gl6rb15hb8s5" path="res://Sprite/jaula.png" id="4_65fd5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ekkgo"]
@@ -81,6 +82,37 @@ text = "vel y"
 position = Vector2(-3, 77)
 shape = SubResource("CircleShape2D_kbfao")
 
+[node name="overlay" type="Node2D" parent="nico"]
+
+[node name="up" type="Sprite2D" parent="nico/overlay"]
+visible = false
+z_index = 4
+position = Vector2(0, -141)
+rotation = -1.57079
+scale = Vector2(2.01153, 2.01153)
+texture = ExtResource("3_ucrkm")
+
+[node name="down" type="Sprite2D" parent="nico/overlay"]
+visible = false
+z_index = 4
+position = Vector2(0, 116)
+texture = ExtResource("3_ucrkm")
+
+[node name="right" type="Sprite2D" parent="nico/overlay"]
+visible = false
+z_index = 4
+position = Vector2(133, 0)
+scale = Vector2(2.09625, 2.09625)
+texture = ExtResource("3_ucrkm")
+
+[node name="left" type="Sprite2D" parent="nico/overlay"]
+visible = false
+z_index = 4
+position = Vector2(-135, 0)
+rotation = -3.14159
+scale = Vector2(1.95356, 1.95356)
+texture = ExtResource("3_ucrkm")
+
 [node name="cage" type="RigidBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_b0nn5")
 
@@ -133,6 +165,8 @@ texture = ExtResource("3_ouxpd")
 position = Vector2(1, -11)
 scale = Vector2(2.66152, 2.66152)
 texture = ExtResource("4_65fd5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="body_entered" from="nico/floor_col" to="." method="_on_floor_col_body_entered"]
 [connection signal="body_exited" from="nico/floor_col" to="." method="_on_floor_col_body_exited"]

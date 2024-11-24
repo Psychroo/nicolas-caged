@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://crt63qc87dber"]
+[gd_scene load_steps=7 format=3 uid="uid://crt63qc87dber"]
 
 [ext_resource type="Texture2D" uid="uid://bwowb4g3r73vl" path="res://Sprite/icon.svg" id="1_8mbl8"]
 [ext_resource type="PackedScene" uid="uid://cyhfnt6awitmt" path="res://Scenes/player.tscn" id="1_i1e3g"]
 [ext_resource type="PackedScene" uid="uid://blilibt3pmeko" path="res://Scenes/interactable.tscn" id="2_yw04c"]
+[ext_resource type="PackedScene" uid="uid://cx4c574ghogkr" path="res://Scenes/monke.tscn" id="3_irktp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ewigv"]
 friction = 0.2
@@ -18,8 +19,11 @@ position = Vector2(0, -214)
 [node name="i_bone" parent="." instance=ExtResource("2_yw04c")]
 position = Vector2(255, -172)
 
+[node name="monete" parent="." instance=ExtResource("3_irktp")]
+position = Vector2(837, -152)
+
 [node name="i_dog" parent="." instance=ExtResource("2_yw04c")]
-position = Vector2(525, 21)
+position = Vector2(528, -169)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-6, -87)
@@ -74,7 +78,7 @@ scale = Vector2(1.01562, 0.171875)
 texture = ExtResource("1_8mbl8")
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="."]
-position = Vector2(603, 142)
+position = Vector2(534, -43)
 rotation = 0.00194304
 scale = Vector2(2.74934, 1.52623)
 physics_material_override = SubResource("PhysicsMaterial_ewigv")

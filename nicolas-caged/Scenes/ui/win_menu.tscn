@@ -1,0 +1,132 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnv845kq41fit"]
+
+[ext_resource type="Theme" uid="uid://crn417lbb67ve" path="res://Scenes/ui/theme.tres" id="1_ajs3f"]
+[ext_resource type="Script" path="res://Scenes/ui/win_menu.gd" id="2_8s1hp"]
+[ext_resource type="Texture2D" uid="uid://cuhvv8nc2jatm" path="res://Sprite/fondo.png" id="2_sfkdl"]
+
+[sub_resource type="Animation" id="Animation_vfdhp"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("win:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c2ci0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("win:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.01, 0.01)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rhf40"]
+_data = {
+"RESET": SubResource("Animation_c2ci0"),
+"new_animation": SubResource("Animation_vfdhp")
+}
+
+[node name="win_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ajs3f")
+script = ExtResource("2_8s1hp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sfkdl")
+
+[node name="vb" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = -64.0
+offset_right = 119.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bt_retry" type="Button" parent="vb"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="vb/bt_retry"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RETRY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bt_quit" type="Button" parent="vb"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="vb/bt_quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="win" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = -187.0
+offset_right = 49.5
+offset_bottom = -165.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.01, 0.01)
+theme_override_font_sizes/font_size = 211
+text = "YOU WIN!!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rhf40")
+}
+
+[connection signal="pressed" from="vb/bt_retry" to="." method="_on_bt_retry_pressed"]
+[connection signal="pressed" from="vb/bt_quit" to="." method="_on_bt_quit_pressed"]
