@@ -43,6 +43,13 @@ func _physics_process(delta):
 	#$nico/overlay/up.visible = bool(round(move_input.y))
 	x_vel = $nico.linear_velocity.x
 	y_vel = $nico.linear_velocity.y
+	if abs(x_vel) > 20:
+		if $AnimationPlayer.current_animation != "walk":
+			$AnimationPlayer.play("walk")
+	else:
+		if $AnimationPlayer.current_animation != "idle":
+			$AnimationPlayer.play("idle")
+		
 	$nico.apply_force(move_input * speed,Vector2.ZERO)
 	_debug_print()
 	
@@ -64,7 +71,12 @@ func _input(event):
 		Global._esc_pressed()
 	if Input.is_action_just_pressed("f2"):
 		get_tree().reload_current_scene()
-	
+	if Input.is_action_just_pressed("a"):
+		%nico_sprite.flip_h = true
+		%nico_air.flip_h = true
+	if Input.is_action_just_pressed("d"):
+		%nico_sprite.flip_h = false
+		%nico_air.flip_h = false
 	move_input.x = Input.get_axis("a","d")
 	move_input.y = Input.get_axis("w","s")
 	if Input.is_action_just_pressed("spc"):
@@ -83,11 +95,16 @@ func _input(event):
 func _on_floor_col_body_entered(body):
 	if !floor_check:return
 	if body.name=='cage':
+	#if body.get_class()=='TileMap':
 		can_jump = true
-
+		%nico_sprite.show()
+		%nico_air.hide()
 
 func _on_floor_col_body_exited(body):
+	#if body.get_class()=='TileMap':
 	if body.name=='cage':
+		%nico_sprite.hide()
+		%nico_air.show()
 		can_jump = false
 		
 	

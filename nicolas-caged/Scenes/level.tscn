@@ -97,6 +97,9 @@ position = Vector2(4959, 134)
 [node name="i_monke" parent="." instance=ExtResource("1_fgop7")]
 position = Vector2(-72, 288)
 
+[node name="other" parent="i_monke" index="1"]
+texture = null
+
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2.5, 2.5)
 tile_set = SubResource("TileSet_eva80")
@@ -127,7 +130,7 @@ push_base_add = 1000.0
 extra_jump_post_bone = 1.75
 metadata/_edit_group_ = true
 
-[node name="debug" parent="player/nico" index="3"]
+[node name="debug" parent="player/nico" index="4"]
 metadata/_edit_use_anchors_ = true
 
 [node name="lb_velocity_x" parent="player/nico/debug" index="0"]
@@ -139,6 +142,9 @@ metadata/_edit_use_anchors_ = true
 [node name="lb_velocity_y" parent="player/nico/debug" index="2"]
 metadata/_edit_use_anchors_ = true
 
+[node name="CollisionShape2D" parent="player/nico/floor_col" index="0"]
+position = Vector2(-2, 77)
+
 [node name="cage" parent="player" index="1"]
 mass = 0.8
 
@@ -146,9 +152,11 @@ mass = 0.8
 script = ExtResource("6_mtgt5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-position = Vector2(3450, 1677.5)
+position = Vector2(3450, 1347)
 shape = SubResource("RectangleShape2D_ff6fd")
 
 [connection signal="body_entered" from="killzone" to="i_bone" method="_on_killzone_body_entered"]
+[connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
 
+[editable path="i_monke"]
 [editable path="player"]

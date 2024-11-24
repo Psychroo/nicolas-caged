@@ -15,6 +15,7 @@ rotation = 1.5708
 polygon = PackedVector2Array(-10.9999, 19, -7.99996, 12, -3, 7, -2, 1, -6.00002, -4.99998, -18, -10.9999, -9.00006, -16, -6.00007, -18, 4.99995, -14, 7, -8, 9, -4.17233e-07, 8, 7, -1.99993, 19, -7.99992, 22)
 
 [node name="Sprite2D" type="Sprite2D" parent="cs_bone"]
+z_index = -1
 position = Vector2(-8, -0.999999)
 rotation = -2.48372
 texture = ExtResource("1_wgkqj")

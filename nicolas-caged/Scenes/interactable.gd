@@ -37,5 +37,4 @@ func _on_body_entered(body):
 
 func _on_killzone_body_entered(body):
 	#if body.name=="cage":
-	get_tree().reload_current_scene()
 	pass # Replace with function body.

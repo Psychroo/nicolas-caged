@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://brs0fdkt4rh1k"]
+[gd_scene load_steps=5 format=3 uid="uid://brs0fdkt4rh1k"]
 
 [ext_resource type="Texture2D" uid="uid://cuhvv8nc2jatm" path="res://Sprite/fondo.png" id="1_75ur4"]
 [ext_resource type="Script" path="res://Scenes/ui/main_menu.gd" id="1_rg58w"]
 [ext_resource type="Theme" uid="uid://crn417lbb67ve" path="res://Scenes/ui/theme.tres" id="1_xevdd"]
+[ext_resource type="Texture2D" uid="uid://drlxxh1josslw" path="res://Sprite/NicolasCagedLogo.png" id="4_4evif"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -15,7 +16,7 @@ theme = ExtResource("1_xevdd")
 script = ExtResource("1_rg58w")
 
 [node name="bg" type="TextureRect" parent="."]
-modulate = Color(0.288518, 0.288518, 0.288518, 1)
+modulate = Color(0.255659, 0.255659, 0.255659, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,6 +78,14 @@ grow_vertical = 2
 text = "QUIT"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 16.0
+offset_right = 1432.0
+offset_bottom = 539.0
+texture = ExtResource("4_4evif")
 
 [connection signal="pressed" from="vb/bt_play" to="." method="_on_bt_play_pressed"]
 [connection signal="pressed" from="vb/bt_quit" to="." method="_on_bt_quit_pressed"]
