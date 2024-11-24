@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cyhfnt6awitmt"]
+[gd_scene load_steps=12 format=3 uid="uid://cyhfnt6awitmt"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_gfnc6"]
 [ext_resource type="Texture2D" uid="uid://cbua8t36a2apt" path="res://Sprite/NicolasIdle.png" id="1_rm4lc"]
@@ -10,7 +10,7 @@
 friction = 0.02
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8l7li"]
-radius = 18.0
+radius = 9.0
 height = 154.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kbfao"]
@@ -20,6 +20,9 @@ radius = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k23t"]
 size = Vector2(215, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2jhw"]
+size = Vector2(225.5, 229.5)
 
 [node name="player" type="Node2D"]
 script = ExtResource("1_gfnc6")
@@ -79,7 +82,11 @@ text = "vel y"
 [node name="floor_col" type="Area2D" parent="nico"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="nico/floor_col"]
-position = Vector2(-3, 77)
+position = Vector2(19, 77)
+shape = SubResource("CircleShape2D_kbfao")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="nico/floor_col"]
+position = Vector2(-27, 77)
 shape = SubResource("CircleShape2D_kbfao")
 
 [node name="overlay" type="Node2D" parent="nico"]
@@ -166,7 +173,17 @@ position = Vector2(1, -11)
 scale = Vector2(2.66152, 2.66152)
 texture = ExtResource("4_65fd5")
 
+[node name="checker" type="Area2D" parent="cage"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="cage/checker"]
+position = Vector2(1.25, -9.75)
+shape = SubResource("RectangleShape2D_y2jhw")
+
+[node name="audio" type="AudioStreamPlayer2D" parent="cage/checker"]
+unique_name_in_owner = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="body_entered" from="nico/floor_col" to="." method="_on_floor_col_body_entered"]
 [connection signal="body_exited" from="nico/floor_col" to="." method="_on_floor_col_body_exited"]
+[connection signal="body_shape_entered" from="cage/checker" to="." method="_on_checker_body_shape_entered"]

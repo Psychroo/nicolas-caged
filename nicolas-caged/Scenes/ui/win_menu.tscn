@@ -4,21 +4,6 @@
 [ext_resource type="Script" path="res://Scenes/ui/win_menu.gd" id="2_8s1hp"]
 [ext_resource type="Texture2D" uid="uid://cuhvv8nc2jatm" path="res://Sprite/fondo.png" id="2_sfkdl"]
 
-[sub_resource type="Animation" id="Animation_vfdhp"]
-resource_name = "new_animation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("win:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.01, 0.01), Vector2(1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_c2ci0"]
 length = 0.001
 tracks/0/type = "value"
@@ -32,6 +17,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.01, 0.01)]
+}
+
+[sub_resource type="Animation" id="Animation_vfdhp"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("win:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rhf40"]
@@ -127,6 +127,7 @@ text = "YOU WIN!!"
 libraries = {
 "": SubResource("AnimationLibrary_rhf40")
 }
+autoplay = "new_animation"
 
 [connection signal="pressed" from="vb/bt_retry" to="." method="_on_bt_retry_pressed"]
 [connection signal="pressed" from="vb/bt_quit" to="." method="_on_bt_quit_pressed"]

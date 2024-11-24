@@ -7,6 +7,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _go_to_player():
+	await get_tree().create_timer(2.).timeout
 	var tw:Tween = get_tree().create_tween()
 	tw.tween_property(self,"position",Global.player.get_node("nico").global_position,3.)
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,14 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bllgptqw23ryh"]
+[gd_scene load_steps=3 format=3 uid="uid://bllgptqw23ryh"]
 
 [ext_resource type="Texture2D" uid="uid://co6hbto78bgtt" path="res://Sprite/banana32x32.png" id="1_wgkqj"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_scss5"]
+friction = 0.16
+
 [node name="bone" type="RigidBody2D"]
 position = Vector2(-1, 0)
+physics_material_override = SubResource("PhysicsMaterial_scss5")
 
 [node name="cs_bone" type="CollisionPolygon2D" parent="."]
 unique_name_in_owner = true
 rotation = 1.5708
-polygon = PackedVector2Array(-8, 15, -7, 12, -3, 7, -2, 1, -5, -6, -13, -11, -12, -15, -5, -16, 2, -14, 7, -8, 9, -4.17233e-07, 8, 7, 2, 13, -5, 17)
+polygon = PackedVector2Array(-10.9999, 19, -7.99996, 12, -3, 7, -2, 1, -6.00002, -4.99998, -18, -10.9999, -9.00006, -16, -6.00007, -18, 4.99995, -14, 7, -8, 9, -4.17233e-07, 8, 7, -1.99993, 19, -7.99992, 22)
 
 [node name="Sprite2D" type="Sprite2D" parent="cs_bone"]
 position = Vector2(-8, -0.999999)

@@ -13,11 +13,13 @@ var x_vel:float = 0
 var y_vel:float = 0
 var move_input:Vector2 = Vector2.ZERO
 func _ready():
+	Global.has_bone=false
+
 	#$bone.hide()
 	#%cs_bone.disabled = true
 	Global.player = self
 	#_toggle_bone_grabbed(false)
-	pass # Replace with function body.ddddddddddda
+	pass # Replace w1.1ith function body.ddddddddddda
 func _toggle_bone_grabbed(bgrabbed:bool):
 	var b:RigidBody2D = load("res://Scenes/bone_rigid.tscn").instantiate()
 	b.global_position = %bone_point.global_position
@@ -90,3 +92,18 @@ func _on_floor_col_body_exited(body):
 		
 	
  
+
+
+func _on_checker_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	
+	if body.get_class()=="TileMap":
+		if $nico.linear_velocity.length() > 200:
+			%audio.stream  = load("res://sound/GolpeArenaLargo.mp3")
+			%audio.play()
+			return
+		if y_vel > 150:
+			%audio.stream  = load("res://sound/GolpeArenaLargo.mp3")
+			%audio.play()
+			
+		print("body shape entered ",body, " with velocity ",$nico.linear_velocity.length())
+	pass # Replace with function body.
