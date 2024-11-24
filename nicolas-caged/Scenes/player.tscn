@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyhfnt6awitmt"]
+[gd_scene load_steps=10 format=3 uid="uid://cyhfnt6awitmt"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_gfnc6"]
 [ext_resource type="Texture2D" uid="uid://cbua8t36a2apt" path="res://Sprite/NicolasIdle.png" id="1_rm4lc"]
 [ext_resource type="Texture2D" uid="uid://bwowb4g3r73vl" path="res://Sprite/icon.svg" id="3_ouxpd"]
+[ext_resource type="Texture2D" uid="uid://gl6rb15hb8s5" path="res://Sprite/jaula.png" id="4_65fd5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ekkgo"]
 friction = 0.02
@@ -17,7 +18,7 @@ radius = 5.0
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b0nn5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k23t"]
-size = Vector2(220, 20)
+size = Vector2(215, 20)
 
 [node name="player" type="Node2D"]
 script = ExtResource("1_gfnc6")
@@ -84,10 +85,15 @@ shape = SubResource("CircleShape2D_kbfao")
 physics_material_override = SubResource("PhysicsMaterial_b0nn5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cage"]
-position = Vector2(0, -124)
+position = Vector2(1, -111)
 shape = SubResource("RectangleShape2D_1k23t")
 
+[node name="bone_point" type="Marker2D" parent="cage/CollisionShape2D"]
+unique_name_in_owner = true
+position = Vector2(-56, 44)
+
 [node name="Sprite2D" type="Sprite2D" parent="cage/CollisionShape2D"]
+visible = false
 position = Vector2(0, 1.5)
 scale = Vector2(1.70312, 0.132813)
 texture = ExtResource("3_ouxpd")
@@ -97,15 +103,17 @@ position = Vector2(0, 92)
 shape = SubResource("RectangleShape2D_1k23t")
 
 [node name="Sprite2D2" type="Sprite2D" parent="cage/CollisionShape2D2"]
+visible = false
 scale = Vector2(1.70312, 0.132813)
 texture = ExtResource("3_ouxpd")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="cage"]
-position = Vector2(-101, -16)
+position = Vector2(-101, -13.5)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_1k23t")
 
 [node name="Sprite2D3" type="Sprite2D" parent="cage/CollisionShape2D3"]
+visible = false
 position = Vector2(1.99999, -3)
 scale = Vector2(1.70312, 0.132813)
 texture = ExtResource("3_ouxpd")
@@ -116,9 +124,15 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_1k23t")
 
 [node name="Sprite2D4" type="Sprite2D" parent="cage/CollisionShape2D4"]
+visible = false
 position = Vector2(-1, 0)
 scale = Vector2(1.70312, 0.132813)
 texture = ExtResource("3_ouxpd")
+
+[node name="Sprite2D" type="Sprite2D" parent="cage"]
+position = Vector2(1, -11)
+scale = Vector2(2.66152, 2.66152)
+texture = ExtResource("4_65fd5")
 
 [connection signal="body_entered" from="nico/floor_col" to="." method="_on_floor_col_body_entered"]
 [connection signal="body_exited" from="nico/floor_col" to="." method="_on_floor_col_body_exited"]

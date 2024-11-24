@@ -1,4 +1,5 @@
 extends Node2D
+class_name PLAYER
 @export var speed:float = 200
 @export var jump_base:float = 10
 @export var jump_up:float = 100
@@ -10,8 +11,25 @@ var x_vel:float = 0
 var y_vel:float = 0
 var move_input:Vector2 = Vector2.ZERO
 func _ready():
+	#$bone.hide()
+	#%cs_bone.disabled = true
+	Global.player = self
+	#_toggle_bone_grabbed(false)
 	pass # Replace with function body.ddddddddddda
-	
+func _toggle_bone_grabbed(bgrabbed:bool):
+	var b:RigidBody2D = load("res://Scenes/bone_rigid.tscn").instantiate()
+	b.global_position = %bone_point.global_position
+	add_child(b)
+	b.global_position = %bone_point.global_position
+	Global.has_bone = true
+	#if !bgrabbed:
+		#$bone.hide()
+		#%cs_bone.disabled = true
+	#else:
+		#$bone.global_position = %bone_point.global_position
+		#$bone.show()
+		#%cs_bone.disabled = false
+		
 func _physics_process(delta):
 	x_vel = $nico.linear_velocity.x
 	y_vel = $nico.linear_velocity.y

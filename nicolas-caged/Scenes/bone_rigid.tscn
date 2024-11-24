@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bllgptqw23ryh"]
+
+[ext_resource type="Texture2D" uid="uid://ckhov5m5uos4k" path="res://Sprite/bone.png" id="1_fs2s1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wujo5"]
+radius = 6.0
+height = 52.0
+
+[node name="bone" type="RigidBody2D"]
+position = Vector2(-1, 0)
+
+[node name="cs_bone" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wujo5")
+
+[node name="Sprite2D" type="Sprite2D" parent="cs_bone"]
+rotation = -0.785398
+texture = ExtResource("1_fs2s1")

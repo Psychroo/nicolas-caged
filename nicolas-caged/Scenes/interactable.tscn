@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://blilibt3pmeko"]
+[gd_scene load_steps=5 format=3 uid="uid://blilibt3pmeko"]
 
 [ext_resource type="Texture2D" uid="uid://bwowb4g3r73vl" path="res://Sprite/icon.svg" id="1_dwp8x"]
 [ext_resource type="Script" path="res://Scenes/interactable.gd" id="1_hem7h"]
+[ext_resource type="Texture2D" uid="uid://ckhov5m5uos4k" path="res://Sprite/bone.png" id="2_uaiid"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lhhu4"]
 radius = 98.0459
@@ -9,8 +10,14 @@ radius = 98.0459
 [node name="interactable" type="Area2D"]
 script = ExtResource("1_hem7h")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="bone" type="Sprite2D" parent="."]
+texture = ExtResource("2_uaiid")
+
+[node name="other" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_dwp8x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lhhu4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
